@@ -18,5 +18,9 @@
   "ECSTAR.jpg": {
     "price": 245,
     "desc": "Genuine oil for Suzuki Motors"
+  },
+  "Castrol Go.jpg": {
+    "price": 245,
+    "desc": "Castrol Go Premium Oil for all motors"
   }
 }
