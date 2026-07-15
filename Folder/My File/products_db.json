@@ -34,5 +34,9 @@
   "brakepad.jpg": {
     "price": 75,
     "desc": "Genuine replacement motorcycle parts. Standard specifications."
+  },
+  "clutch.jpg": {
+    "price": 100,
+    "desc": "Genuine replacement motorcycle parts. Standard specifications."
   }
 }
