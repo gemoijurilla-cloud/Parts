@@ -38,5 +38,9 @@
   "clutch.jpg": {
     "price": 100,
     "desc": "Genuine replacement motorcycle parts. Standard specifications."
+  },
+  "ecstaroil.jpg": {
+    "price": 245,
+    "desc": "Genuine replacement motorcycle parts. Standard specifications."
   }
 }
