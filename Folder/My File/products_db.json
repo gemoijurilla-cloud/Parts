@@ -26,5 +26,9 @@
   "brakecable.jpg": {
     "price": 100,
     "desc": "Genuine replacement motorcycle parts. Standard specifications."
+  },
+  "brakefluid.jpg": {
+    "price": 75,
+    "desc": "Genuine replacement motorcycle parts. Standard specifications."
   }
 }
