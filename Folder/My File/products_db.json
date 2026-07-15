@@ -42,5 +42,9 @@
   "ecstaroil.jpg": {
     "price": 245,
     "desc": "Genuine replacement motorcycle parts. Standard specifications."
+  },
+  "fuelhose.jpg": {
+    "price": 12,
+    "desc": "Genuine replacement motorcycle parts. Standard specifications/sold per feet"
   }
 }
