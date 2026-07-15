@@ -22,5 +22,9 @@
   "Castrol Go.jpg": {
     "price": 245,
     "desc": "Castrol Go Premium Oil for all motors"
+  },
+  "Brake Shoe.jpg": {
+    "price": 220,
+    "desc": "YSK Brake Shoe"
   }
 }
