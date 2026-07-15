@@ -30,5 +30,9 @@
   "brakefluid.jpg": {
     "price": 75,
     "desc": "Genuine replacement motorcycle parts. Standard specifications."
+  },
+  "brakepad.jpg": {
+    "price": 75,
+    "desc": "Genuine replacement motorcycle parts. Standard specifications."
   }
 }
