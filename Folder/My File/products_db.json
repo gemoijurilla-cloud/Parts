@@ -50,5 +50,9 @@
   "handleswitch.jpg": {
     "price": 450,
     "desc": "Genuine replacement motorcycle parts. Standard specifications."
+  },
+  "peanutbulb.jpg": {
+    "price": 15,
+    "desc": "Genuine replacement motorcycle parts. Standard specifications."
   }
 }
