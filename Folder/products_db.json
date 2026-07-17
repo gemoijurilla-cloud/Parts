@@ -138,5 +138,9 @@
   "Carburator.jpg": {
     "price": 575,
     "desc": "Nissin carburator xrm"
+  },
+  "Horn ordinary.jpg": {
+    "price": 100,
+    "desc": "Universal horn"
   }
 }
