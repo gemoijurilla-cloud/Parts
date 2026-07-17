@@ -66,5 +66,9 @@
   "LED light.jpg": {
     "price": 10,
     "desc": "LED light"
+  },
+  "Brake master repair kit.jpg": {
+    "price": 75,
+    "desc": "Brake master repair kit"
   }
 }
