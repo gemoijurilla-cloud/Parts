@@ -134,5 +134,9 @@
   "Engine valve TMX 155.jpg": {
     "price": 275,
     "desc": "Engine valve tmx155"
+  },
+  "Carburator.jpg": {
+    "price": 575,
+    "desc": "Nissin carburator xrm"
   }
 }
