@@ -98,5 +98,9 @@
   "Exhaust gasket.jpg": {
     "price": 25,
     "desc": "Exhaust gasket"
+  },
+  "Pulser.jpg": {
+    "price": 150,
+    "desc": "Pulser"
   }
 }
