@@ -90,5 +90,9 @@
   "Nuckle bearing.jpg": {
     "price": 150,
     "desc": "Nuckle bearing"
+  },
+  "Gasket maker.jpg": {
+    "price": 35,
+    "desc": "Gasket maker"
   }
 }
