@@ -102,5 +102,9 @@
   "Pulser.jpg": {
     "price": 150,
     "desc": "Pulser"
+  },
+  "Magneto Coil.jpg": {
+    "price": 452,
+    "desc": "XRM magneto Coil"
   }
 }
