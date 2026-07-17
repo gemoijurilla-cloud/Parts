@@ -78,5 +78,9 @@
   "Havoline 800ml.jpg": {
     "price": 285,
     "desc": "800ml"
+  },
+  "Battery 4L.jpg": {
+    "price": 550,
+    "desc": "Battery"
   }
 }
