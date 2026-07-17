@@ -94,5 +94,9 @@
   "Gasket maker.jpg": {
     "price": 35,
     "desc": "Gasket maker"
+  },
+  "Exhaust gasket.jpg": {
+    "price": 25,
+    "desc": "Exhaust gasket"
   }
 }
