@@ -62,5 +62,9 @@
   "Fuel Filter.jpg": {
     "price": 25,
     "desc": "Universal fuel filter"
+  },
+  "LED light.jpg": {
+    "price": 10,
+    "desc": "LED light"
   }
 }
