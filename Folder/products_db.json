@@ -86,5 +86,9 @@
   "Yamaha Gear Oil.jpg": {
     "price": 75,
     "desc": "Genuine Yamaha Gear oil"
+  },
+  "Nuckle bearing.jpg": {
+    "price": 150,
+    "desc": "Nuckle bearing"
   }
 }
