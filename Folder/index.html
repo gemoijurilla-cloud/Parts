@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinoy Live Selling Portal</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background-color: #f0f2f5; display: flex; flex-direction: column; height: 100vh; }
+        header { background: #ff4757; color: white; padding: 10px; text-align: center; font-weight: bold; }
+        .container { display: flex; flex: 1; overflow: hidden; }
+        .left-panel { flex: 2; display: flex; flex-direction: column; background: #000; position: relative; }
+        .video-stream { width: 100%; height: 100%; background: #222; display: flex; align-items: center; justify-content: center; color: white; }
+        .right-panel { flex: 1; display: flex; flex-direction: column; background: white; border-left: 1px solid #ddd; }
+        
+        /* Yellow Basket */
+        .yellow-basket { background: #ffcc00; padding: 10px; display: flex; flex-direction: column; gap: 5px; }
+        .search-bar { padding: 5px; width: 95%; border: 1px solid #ccc; border-radius: 4px; }
+        .product-list { max-height: 150px; overflow-y: auto; background: white; padding: 5px; border-radius: 4px; }
+        .product-item { display: flex; justify-content: space-between; align-items: center; padding: 5px; border-bottom: 1px solid #eee; }
+        .btn-buy { background: #ff4757; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 4px; }
+
+        /* Chat Section */
+        .chat-section { flex: 1; display: flex; flex-direction: column; padding: 10px; overflow-y: auto; }
+        .chat-messages { flex: 1; overflow-y: auto; border: 1px solid #eee; padding: 5px; margin-bottom: 5px; background: #fafafa; }
+        .chat-input-area { display: flex; gap: 5px; }
+        .chat-input { flex: 1; padding: 5px; }
+        .btn-send { background: #007bff; color: white; border: none; padding: 5px 10px; }
+
+        /* Modal / Checkout */
+        .modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-radius: 8px; z-index: 100; width: 90%; max-width: 400px; }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 99; }
+        .form-group { margin-bottom: 10px; }
+        .form-group label { display: block; margin-bottom: 5px; }
+        .form-group input, .form-group select { width: 100%; padding: 8px; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+
+<header>🔴 LIVE SELLING STATION</header>
+
+<div class="container">
+    <!-- LIVE BROADCAST STREAM -->
+    <div class="left-panel">
+        <!-- Palitan ang src ng iyong RTMP/HLS Live Stream URL kapag may service ka na gaya ng LiveKit o Agora -->
+        <div class="video-stream">
+            <h3>[ One-to-Many Live Video Stream Screen ]</h3>
+        </div>
+    </div>
+
+    <!-- SIDE PANEL: BASKET, CHAT, AT CHECKOUT -->
+    <div class="right-panel">
+        <!-- Yellow Basket & Search -->
+        <div class="yellow-basket">
+            <strong>🧺 Yellow Basket</strong>
+            <input type="text" class="search-bar" placeholder="Maghanap ng produkto...">
+            <div class="product-list">
+                <div class="product-item">
+                    <span>👕 Trendy T-Shirt (₱250)</span>
+                    <button class="btn-buy" onclick="openCheckout('Trendy T-Shirt', 250)">Buy Now</button>
+                </div>
+                <div class="product-item">
+                    <span>👟 Sports Shoes (₱899)</span>
+                    <button class="btn-buy" onclick="openCheckout('Sports Shoes', 899)">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Chat & Ask Seller -->
+        <div class="chat-section">
+            <strong>💬 Live Chat / Ask Seller</strong>
+            <div class="chat-messages" id="chatBox">
+                <div><em>System: Welcome sa live stream! Pwede kayong magtanong sa seller dito.</em></div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" class="chat-input" placeholder="Mag-type ng mensahe o tanong...">
+                <button class="btn-send" onclick="sendMessage()">Ipadala</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="overlay"></div>
+<div class="modal" id="checkoutModal">
+    <h3>🛒 Checkout Order</h3>
+    <p id="selectedProduct"></p>
+    <div class="form-group">
+        <label>Pangalan:</label>
+        <input type="text" id="custName" required>
+    </div>
+    <div class="form-group">
+        <label>Address ng Delivery:</label>
+        <input type="text" id="custAddress" required>
+    </div>
+    <div class="form-group">
+        <label>Payment Method:</label>
+        <select id="paymentMethod">
+            <option value="Cash On Delivery">Cash On Delivery (COD)</option>
+            <option value="Cash On Pick-up">Cash On Pick-up (COP)</option>
+        </select>
+    </div>
+    <button class="btn-buy" style="width:100%;" onclick="submitOrder()">Place Order & Get Waybill</button>
+    <button class="btn-send" style="width:100%; background:#ccc; margin-top:5px; color:black;" onclick="closeCheckout()">I-cancel</button>
+</div>
+
+<script>
+    // Palitan ito ng makukuha mong NGROK URL galing sa Google Colab mamaya
+    const BACKEND_URL = "HTTPS://YOUR_NGROK_SUBDOMAIN.ngrok-free.app"; 
+
+    let currentProduct = "";
+    let currentPrice = 0;
+
+    function openCheckout(prod, price) {
+        currentProduct = prod;
+        currentPrice = price;
+        document.getElementById('selectedProduct').innerText = `${prod} - ₱${price}`;
+        document.getElementById('checkoutModal').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    }
+
+    function closeCheckout() {
+        document.getElementById('checkoutModal').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    }
+
+    function sendMessage() {
+        let msg = document.getElementById('chatInput').value;
+        if(msg) {
+            let box = document.getElementById('chatBox');
+            box.innerHTML += `<div><strong>Ikaw:</strong> ${msg}</div>`;
+            document.getElementById('chatInput').value = "";
+            box.scrollTop = box.scrollHeight;
+        }
+    }
+
+    async function submitOrder() {
+        const orderData = {
+            product: currentProduct,
+            price: currentPrice,
+            name: document.getElementById('custName').value,
+            address: document.getElementById('custAddress').value,
+            payment: document.getElementById('paymentMethod').value
+        };
+
+        if(!orderData.name || !orderData.address) return alert("Paki-puno lahat ng detalye!");
+
+        try {
+            const response = await fetch(`${BACKEND_URL}/api/checkout`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(orderData)
+            });
+            const result = await response.json();
+            
+            alert(`Order Successful!\nTracking ID: ${result.tracking_id}\nI-download ang iyong Waybill sa susunod na window.`);
+            window.open(`${BACKEND_URL}/api/waybill/${result.tracking_id}`, '_blank');
+            closeCheckout();
+        } catch (error) {
+            console.error(error);
+            alert("Hindi makakonekta sa server (Colab Backend via NGROK).");
+        }
+    }
+</script>
+</body>
+</html>
