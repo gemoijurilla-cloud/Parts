@@ -46,7 +46,17 @@
             <h3>[ One-to-Many Live Video Stream Screen ]</h3>
         </div>
     </div>
-
+<script>
+  async function startCam() {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+      document.getElementById('webcam').srcObject = stream;
+    } catch (err) {
+      console.error("Hindi ma-access ang camera: ", err);
+    }
+  }
+  startCam();
+</script>
     <!-- SIDE PANEL: BASKET, CHAT, AT CHECKOUT -->
     <div class="right-panel">
         <!-- Yellow Basket & Search -->
