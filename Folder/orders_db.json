@@ -6,7 +6,7 @@
     "customerAddress": "Bliss",
     "paymentMethod": "cod",
     "totalPrice": 735,
-    "status": "Pending",
+    "status": "In Transit",
     "date": "7/20/2026",
     "items": [
       {
