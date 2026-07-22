@@ -1,37 +1,19 @@
 [
   {
-    "id": "583834",
+    "id": "472028",
     "customerName": "Gemoi",
     "customerPhone": "5309397918532",
     "customerAddress": "Bliss",
     "paymentMethod": "cod",
-    "totalPrice": 450,
+    "totalPrice": 85,
     "status": "Pending",
     "date": "7/22/2026",
     "items": [
       {
-        "name": "Air Filter Honda beat.jpg",
-        "displayName": "Air Filter Honda beat",
+        "name": "Bearing.jpg",
+        "displayName": "Bearing",
         "qty": 1,
-        "price": 450
-      }
-    ]
-  },
-  {
-    "id": "962591",
-    "customerName": "Gemoi",
-    "customerPhone": "5309397918532",
-    "customerAddress": "Bliss",
-    "paymentMethod": "cod",
-    "totalPrice": 450,
-    "status": "Pending",
-    "date": "7/22/2026",
-    "items": [
-      {
-        "name": "Air Filter Honda beat.jpg",
-        "displayName": "Air Filter Honda beat",
-        "qty": 1,
-        "price": 450
+        "price": 85
       }
     ]
   }
