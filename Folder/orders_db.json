@@ -1,17 +1,18 @@
 [
   {
-    "id": "911118",
-    "customerName": "Gemoi",
-    "customerPhone": "5309397918532",
-    "customerAddress": "Bliss",
+    "id": "133560",
+    "customerName": "ge",
+    "customerPhone": "09",
+    "customerAddress": "ca",
     "paymentMethod": "cod",
-    "totalPrice": 500,
+    "totalPrice": 450,
     "status": "Pending",
-    "date": "7/22/2026",
+    "date": "7/26/2026",
     "items": [
       {
         "name": "Air Filter Honda beat.jpg",
         "displayName": "Air Filter Honda beat",
+        "variant": "Standard",
         "qty": 1,
         "price": 450
       }
