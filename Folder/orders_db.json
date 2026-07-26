@@ -6,7 +6,7 @@
     "customerAddress": "ca",
     "paymentMethod": "cod",
     "totalPrice": 450,
-    "status": "Pending",
+    "status": "In Transit",
     "date": "7/26/2026",
     "items": [
       {
